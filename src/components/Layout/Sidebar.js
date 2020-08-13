@@ -2,14 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+import {AppBar, Toolbar, List, CssBaseline, Drawer, Avatar, Typography, Divider, IconButton} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -147,7 +140,7 @@ const MiniDrawer = (props) => {
                     onClick={handleMenu}
                     color="inherit"
                 >
-                    <AccountCircleOutlined />
+                    <Avatar className={classes.orange}>A</Avatar>
                 </IconButton>
                 <Menu
                     id="menu-appbar"
@@ -187,6 +180,7 @@ const MiniDrawer = (props) => {
         }}
       >
         <div className={classes.toolbar}>
+        <h1>Admin</h1>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
