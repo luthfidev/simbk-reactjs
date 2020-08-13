@@ -16,7 +16,14 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { HomeOutlined, AccountCircleOutlined } from '@material-ui/icons';
+import { 
+  HomeOutlined, 
+  AccountCircleOutlined, 
+  PeopleAltOutlined, 
+  PermIdentityOutlined, 
+  AssignmentLateOutlined,
+  TouchAppOutlined, 
+} from '@material-ui/icons';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
@@ -159,6 +166,7 @@ const MiniDrawer = (props) => {
                 >
                     <MenuItem onClick={handleClose}>Profile</MenuItem>
                     <MenuItem onClick={handleClose}>My account</MenuItem>
+                    <MenuItem onClick={handleClose}>Logout</MenuItem>
                 </Menu>
           </div>
           <div>
@@ -196,14 +204,26 @@ const MiniDrawer = (props) => {
         <List>
             <Link className="Link-style" to="/student">
                 <ListItem button>
-                <ListItemIcon><HomeOutlined /> </ListItemIcon>
+                <ListItemIcon><PeopleAltOutlined /> </ListItemIcon>
                 <ListItemText primary={"Student"} />
                 </ListItem>
             </Link>
             <Link className="Link-style" to="/teacher">
                 <ListItem button>
-                <ListItemIcon><HomeOutlined /> </ListItemIcon>
+                <ListItemIcon><PermIdentityOutlined /> </ListItemIcon>
                 <ListItemText primary={"Teacher"} />
+                </ListItem>
+            </Link>
+            <Link className="Link-style" to="/offense">
+                <ListItem button>
+                <ListItemIcon><AssignmentLateOutlined /> </ListItemIcon>
+                <ListItemText primary={"Offense"} />
+                </ListItem>
+            </Link>
+            <Link className="Link-style" to="/point">
+                <ListItem button>
+                <ListItemIcon><TouchAppOutlined /> </ListItemIcon>
+                <ListItemText primary={"Point"} />
                 </ListItem>
             </Link>
         </List>

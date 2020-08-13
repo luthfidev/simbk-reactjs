@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 // Component
 import Copyright from '../components/footer/Copyright.js'
@@ -34,10 +35,20 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  circularProgress: {
+    marginLeft: 0,
+    marginRight: theme.spacing.unit,
+  },
 }));
 
-export default function SignIn() {
+const SignIn = () => {
+  const [loading, setLoading] = useState(false)
   const classes = useStyles();
+
+  const handlePost = (e) => {
+    e.preventDefault()
+      setLoading(true)
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -47,7 +58,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          SIMBK
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -56,9 +67,8 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            label="Username"
+            name="username"
             autoFocus
           />
           <TextField
@@ -82,7 +92,12 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-          >
+            disabled={loading}
+            onClick={handlePost}
+            >
+            {loading &&
+            <CircularProgress className={classes.circularProgress} size={20}/>
+            }
             Sign In
           </Button>
           <Grid container>
@@ -100,3 +115,5 @@ export default function SignIn() {
     </Container>
   );
 }
+
+export default SignIn;
